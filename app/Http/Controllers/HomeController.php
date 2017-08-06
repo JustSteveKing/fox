@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index(Request $request, Response $response, $params)
     {
-        $this->mail->to('test@test.com', 'Foxy User')->send(new Welcome($user));
+        //$this->mail->to('test@test.com', 'Foxy User')->send(new Welcome($user));
         //$this->container->get('logger')->info('Sent test email');
         return $this->view->render($response, 'index.twig');
     }
