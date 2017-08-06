@@ -12,5 +12,7 @@ Available Commands:
 ## Special Thanks
 
 [Rob Morgan](https://phinx.org/) for Phinx - database migrations
+
 [Hannes Forsgård](https://github.com/hanneskod) for classtools - using this to load in all commands into the Slim console
+
 [Slim Framework](https://www.slimframework.com/) for basically the base of what I want to achieve - thanks to all the contributers!
