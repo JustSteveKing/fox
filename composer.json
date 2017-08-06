@@ -1,0 +1,39 @@
+{
+    "name": "juststeveking/fox",
+    "description": "A Slim framework 3 bootstrap that is very foxy indeed.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Steve King",
+            "email": "juststeveking@gmail.com",
+            "homepage": "https://github.com/JustSteveKing/fox"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.8",
+        "illuminate/database": "^5.4",
+        "slim/twig-view": "^2.2",
+        "vlucas/phpdotenv": "^2.4",
+        "monolog/monolog": "^1.23"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.5",
+        "phpunit/phpunit": "^5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": [
+            "php vendor/squizlabs/php_codesniffer/scripts/phpcs",
+            "php vendor/phpunit/phpunit/phpunit"
+        ]
+    }
+}
