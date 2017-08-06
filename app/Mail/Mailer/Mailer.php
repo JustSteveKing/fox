@@ -1,4 +1,6 @@
-<?php namespace App\Mail\Mailer;
+<?php
+
+namespace App\Mail\Mailer;
 
 use App\Mail\Mailer\Contracts\MailableContract;
 use App\Mail\Mailer\MessageBuilder;
@@ -32,7 +34,7 @@ class Mailer
         return $this;
     }
 
-    public function send($view, $viewData = [], Callable $callback = null)
+    public function send($view, $viewData = [], callable $callback = null)
     {
         if ($view instanceof MailableContract) {
             return $this->sendMailable($view);

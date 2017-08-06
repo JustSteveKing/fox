@@ -2,10 +2,8 @@
 
 namespace App\Mail\Mailer;
 
-use App\Mail\Mailer\{
-    Mailer,
-    Contracts\MailableContract
-};
+use App\Mail\Mailer\Mailer;
+use App\Mail\Mailer\Contracts\MailableContract;
 
 abstract class Mailable implements MailableContract
 {

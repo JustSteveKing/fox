@@ -1,4 +1,6 @@
-<?php namespace App\Mail\Mailer;
+<?php
+
+namespace App\Mail\Mailer;
 
 use App\Mail\Mailer\Mailer;
 
