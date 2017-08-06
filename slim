@@ -7,4 +7,10 @@ use Symfony\Component\Console\Application;
 
 $app = new Application('Slim Console', '1.0');
 
+$commands = new hanneskod\classtools\Iterator\ClassIterator((new Symfony\Component\Finder\Finder)->in('app/Console'));
+
+foreach ($commands->getClassMap() as $classname => $fileInfo) {
+	$app->add(new $classname());
+}
+
 $app->run();
