@@ -16,7 +16,8 @@
         "vlucas/phpdotenv": "^2.4",
         "monolog/monolog": "^1.23",
         "swiftmailer/swiftmailer": "^6.0",
-        "symfony/console": "^3.3"
+        "symfony/console": "^3.3",
+        "robmorgan/phinx": "^0.8.1"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.5",
