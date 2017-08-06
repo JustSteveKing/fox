@@ -2,3 +2,5 @@
 /storage/logs/*
 /storage/app/cache/twig/*
 .env
+.DS_STORE
+/*/.DS_STORE

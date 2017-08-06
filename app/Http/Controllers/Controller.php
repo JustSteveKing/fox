@@ -13,6 +13,8 @@ abstract class Controller
 
     protected $view;
 
+    protected $mail;
+
     /**
      * Set up controllers to have access to the container.
      *
@@ -22,5 +24,6 @@ abstract class Controller
     {
         $this->container = $container;
         $this->view = $container->get('view');
+        $this->mail = $container->get('mail');
     }
 }

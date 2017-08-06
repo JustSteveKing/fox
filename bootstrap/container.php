@@ -26,3 +26,17 @@ $container['view'] = function ($c) {
     $view->addExtension(new Twig_Extension_Debug());
     return $view;
 };
+
+// Mail
+$container['mail'] = function ($container) {
+    $config = $container->settings['mail'];
+
+    $transport = (new Swift_SmtpTransport($config['host'], $config['port']))
+        ->setUsername($config['username'])
+        ->setPassword($config['password']);
+
+    $swift = new Swift_Mailer($transport);
+
+    return (new App\Mail\Mailer\Mailer($swift, $container->view))
+        ->alwaysFrom($config['from']['address'], $config['from']['name']);
+};
