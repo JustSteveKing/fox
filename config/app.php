@@ -31,5 +31,15 @@ return [
       ],
       'template' => [
         'path' => __DIR__ . '/../resources/views/'
-      ]
+      ],
+      'mail' => [
+            'host' => getenv('MAIL_HOST'),
+            'port' => getenv('MAIL_PORT'),
+            'from' => [
+                'name' => getenv('MAIL_FROM_NAME'),
+                'address' => getenv('MAIL_FROM_ADDRESS')
+            ],
+            'username' => getenv('MAIL_USERNAME'),
+            'password' => getenv('MAIL_PASSWORD'),
+        ]
 ];
