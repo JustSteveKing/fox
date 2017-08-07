@@ -2,14 +2,14 @@
 
 namespace App\Base;
 
-use Slim\App;
+use Slim\Container;
 
 abstract class AbstractMiddleware
 {
     protected $app;
 
-    public function __construct(App $app)
+    public function __construct(Container $container)
     {
-        $this->app = $app;
+        $this->container = $container;
     }
 }
