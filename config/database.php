@@ -2,7 +2,7 @@
 
 return [
     'database' => [
-        'driver' => 'msql',
+        'driver' => 'mysql',
         'host' => 'localhost',
         'port' => 3306,
         'database' => 'database',
