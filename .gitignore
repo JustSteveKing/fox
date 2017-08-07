@@ -1,6 +1,6 @@
 /vendor/
 /storage/logs/*
 /storage/app/cache/twig/*
-.env
+/config/app.php
 .DS_STORE
 /*/.DS_STORE
