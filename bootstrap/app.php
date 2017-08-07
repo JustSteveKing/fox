@@ -16,6 +16,16 @@ $app = new Slim\App([
 
 require __DIR__ . '/container.php';
 
+
+// Middleware loading
+$middleware = new hanneskod\classtools\Iterator\ClassIterator(
+	(new Symfony\Component\Finder\Finder)->in(__DIR__ . '/../app/Http/Middleware')
+);
+
+foreach ($middleware->getClassMap() as $classname => $fileInfo) {
+	$app->add(new $classname());
+}
+
 require __DIR__ . '/../routes/web.php';
 
 $capsule = $app->getContainer()->get('capsule');
