@@ -7,7 +7,12 @@ A Slim framework 3 bootstrap that is very foxy indeed.
 Available Commands:
 * `php slim app:test` : A simple Test Command
 * `php slilm migration:create` : Create a new Database Migration
+* `php slim migration:migrate` : Run the migrations
 
+
+## Migrations
+
+Please ensure that you configure the migrations properly, the config file can be found `phinx.yml` - which will allow you to configure migrations dependent on your development environment
 
 ## Special Thanks
 
