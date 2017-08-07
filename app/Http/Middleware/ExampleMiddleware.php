@@ -2,10 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use App\Base\AbstractMiddleware;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-class ExampleMiddleware
+class ExampleMiddleware extends AbstractMiddleware
 {
     /**
      * Example middleware invokable class
@@ -18,6 +19,7 @@ class ExampleMiddleware
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next)
     {
+        $this->app->getContainer()->logger->info('Logger called from middleware');
         $response = $next($request, $response);
         return $response;
     }
