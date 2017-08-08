@@ -12,14 +12,12 @@
 		<h2>{{ trans_choice('common.replies', 0) }}</h2>
 	</section>
 
-	{% if messages %}
-		<div class="container">
-			{% for message in messages %}
-				<div class="notification">
-					{{ message[0] }}
-				</div>
-			{% endfor %}
-		</div>
+	{% if hasMessage('Test') %}
+		<ul>
+	    	{% for msg in flash('Test') %}
+	    		<li>{{ msg }}</li>
+	    	{% endfor %}
+		</ul>
 	{% endif %}
 
 {% endblock %}

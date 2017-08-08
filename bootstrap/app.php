@@ -83,6 +83,7 @@ $container['view'] = function ($container) {
     $view->addExtension(new Twig_Extension_Debug());
     $view->addExtension(new App\Views\TranslateExtension($container['translator']));
     $view->addExtension(new App\Views\ConfigExtension($container['config']));
+    $view->addExtension(new App\Views\FlashExtension($container['flash']));
     return $view;
 };
 
