@@ -20,4 +20,6 @@
     <!-- Paths to check -->
     <file>app</file>
     <file>tests</file>
+
+    <exclude-pattern type="relative">app/Database/Migrations</exclude-pattern>
 </ruleset>
