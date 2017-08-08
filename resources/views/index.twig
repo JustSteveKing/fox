@@ -14,8 +14,8 @@
 
 	{% if hasMessage('Test') %}
 		<ul>
-	    	{% for msg in flash('Test') %}
-	    		<li>{{ msg }}</li>
+	    	{% for message in flash('Test') %}
+	    		<li>{{ message }}</li>
 	    	{% endfor %}
 		</ul>
 	{% endif %}
