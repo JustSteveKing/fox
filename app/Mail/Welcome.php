@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use App\Mail\Mailer\Mailable;
-use App\Models\User;
 
 class Welcome extends Mailable
 {
