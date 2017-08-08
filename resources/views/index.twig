@@ -1,21 +1,25 @@
 {% extends 'layouts/web.twig' %}
 
 {% block title %}
-	Test
+test
 {% endblock %}
 
 {% block content %}
 
-<section class="section">
-	<h1>{{ trans('common.welcome', { '%name%' : 'Steve'}) }}</h1>
-	<h2>{{ trans_choice('common.new_messages', 5, { '%name%' : 'Steve' }) }}</h2>
-	<h2>{{ trans_choice('common.replies', 0) }}</h2>
-</section>
+	<section class="section">
+		<h1>{{ trans('common.welcome', { '%name%' : 'Steve'}) }}</h1>
+		<h2>{{ trans_choice('common.new_messages', 5, { '%name%' : 'Steve' }) }}</h2>
+		<h2>{{ trans_choice('common.replies', 0) }}</h2>
+	</section>
 
-{% if flash %}
-	<div class="notification">
-		{{ dump(flash) }}
-	</div>
-{% endif %}
+	{% if messages %}
+		<div class="container">
+			{% for message in messages %}
+				<div class="notification">
+					{{ message[0] }}
+				</div>
+			{% endfor %}
+		</div>
+	{% endif %}
 
 {% endblock %}
