@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Noodlehaus\Config;
+use Twilio\Rest\Client;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Translation\Translator;
 use Symfony\Component\Translation\Loader\ArrayLoader;
@@ -90,11 +91,13 @@ $container['view'] = function ($container) {
 // Message
 $container['message'] = function ($container) {
     $config = $container->config;
+    $sid = $config->get('message.sid');
+    $token = $config->get('message.token');
 
-    $client = new Twilio\Rest\Client($config->get('message.sid', $config->get('message.token')));
+    $client = new Client($sid, $token);
 
     return (new App\Message\Messenger\Messenger($client, $container->view))
-        ->alwaysFrom($config->get('message.from.number'));
+        ->from($config->get('message.from.number'));
 };
 
 // Mail

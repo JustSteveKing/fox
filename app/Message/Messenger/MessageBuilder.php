@@ -2,55 +2,47 @@
 
 namespace App\Message\Messenger;
 
-use Swift_Message;
-use Swift_Attachment;
+use App\Message\Messenger\Message;
 
 class MessageBuilder
 {
-    protected $swiftMessage;
+    protected $message;
 
-    public function __construct(Swift_Message $swiftMessage)
+    public function __construct(Message $message)
     {
-        $this->swiftMessage = $swiftMessage;
+        $this->message = $message;
     }
 
-    public function to($address, $name = null)
+    public function to($number)
     {
-        $this->swiftMessage->setTo($address, $name);
+        $this->message->setTo($number);
 
         return $this;
     }
 
-    public function subject($subject)
-    {
-        $this->swiftMessage->setSubject($subject);
 
-        return $this;
-    }
-
-    public function attach($file)
-    {
-        $this->swiftMessage->attach(Swift_Attachment::fromPath($file));
-
-        return $this;
-    }
 
     public function body($body)
     {
-        $this->swiftMessage->setBody($body, 'text/html');
+        $this->message->setBody($body);
 
         return $this;
     }
 
-    public function from($address, $name = null)
+    public function from($number)
     {
-        $this->swiftMessage->setFrom($address, $name);
+        $this->message->setFrom($number);
 
         return $this;
     }
 
-    public function getSwiftMessage()
+    public function getmessage()
     {
-        return $this->swiftMessage;
+        return $this->message->getBody();
+    }
+
+    public function getTo()
+    {
+        return $this->message->getTo();
     }
 }

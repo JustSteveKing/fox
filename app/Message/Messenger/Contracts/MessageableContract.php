@@ -6,5 +6,5 @@ use App\Message\Messenger\Messenger;
 
 interface MessageableContract
 {
-    public function send(Messenger $messenger);
+    public function create(Messenger $messenger);
 }

@@ -14,7 +14,7 @@ class HomeController extends Controller
     {
         $this->flash->addMessage('Test', 'Test Flash Message');
         //$this->mail->to('test@test.com', 'Foxy User')->send(new Welcome($user));
-        $this->message->to('0123456789')->send(new WelcomeMessage());
+        //$this->message->to('+44 - UK Mobile Number minus leading 0 -')->create(new WelcomeMessage());
         //$this->container->get('logger')->info('Sent test email');
         return $this->view->render($response, 'index.twig');
     }

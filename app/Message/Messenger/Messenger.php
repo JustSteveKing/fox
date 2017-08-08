@@ -13,7 +13,7 @@ class Messenger
 
     protected $twig;
 
-    protected $from = [];
+    protected $from;
 
     public function __construct(TwilioClient $client, Twig $twig)
     {
@@ -33,7 +33,14 @@ class Messenger
         return $this;
     }
 
-    public function send($view, $viewData = [], callable $callback = null)
+    public function from($number)
+    {
+        $this->from = $number;
+        return $this;
+    }
+
+
+    public function create($view, $viewData = [], callable $callback = null)
     {
         if ($view instanceof MessageableContract) {
             return $this->sendMessageable($view);
@@ -45,18 +52,24 @@ class Messenger
 
         $message->body($this->parseView($view, $viewData));
 
-        return $this->swift->send($message->getSwiftMessage());
+        return $this->client->messages->create(
+            $message->getTo(),
+            [
+                'from' => $this->from,
+                'body' => $message->getMessage()
+            ]
+        );
     }
 
     protected function sendMessageable(Messageable $messageable)
     {
-        return $messageable->send($this);
+        return $messageable->create($this);
     }
 
     protected function buildMessage()
     {
-        return (new MessageBuilder(new Swift_Message))
-            ->from($this->from['number']);
+        return (new MessageBuilder(new Message))
+            ->from($this->from);
     }
 
     protected function parseView($view, $viewData)

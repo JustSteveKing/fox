@@ -35,6 +35,6 @@ abstract class Controller
         $this->mail = $container->get('mail');
         $this->translator = $container->get('translator');
         $this->flash = $container->get('flash');
-        $this->message = $container->get('message');
+        //$this->message = $container->get('message');
     }
 }

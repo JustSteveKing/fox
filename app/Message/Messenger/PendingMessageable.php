@@ -13,15 +13,15 @@ class PendingMessageable
 
     public function to($number)
     {
-        $this->to = compact('number');
+        $this->to = $number;
 
         return $this;
     }
 
-    public function send(Messageable $messageable)
+    public function create(Messageable $messageable)
     {
-        $messageable->to($this->to['number']);
+        $messageable->to($this->to);
 
-        return $this->messenger->send($messageable);
+        return $this->messenger->create($messageable);
     }
 }

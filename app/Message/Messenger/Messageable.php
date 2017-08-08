@@ -15,15 +15,15 @@ abstract class Messageable implements MessageableContract
 
     protected $viewData = [];
 
-    public function send(Messenger $messenger)
+    public function create(Messenger $messenger)
     {
         $this->build();
 
-        $messenger->send($this->view, $this->viewData, function ($message) {
-            $message->to($this->to['number']);
+        $messenger->create($this->view, $this->viewData, function ($message) {
+            $message->to($this->to);
 
             if ($this->from) {
-                $message->from($this->from['number']);
+                $message->from($this->from);
             }
 
 
@@ -32,14 +32,14 @@ abstract class Messageable implements MessageableContract
 
     public function to($number)
     {
-        $this->to = compact('number');
+        $this->to = $number;
 
         return $this;
     }
 
     public function from($number)
     {
-        $this->from = compact('number');
+        $this->from = $number;
 
         return $this;
     }
