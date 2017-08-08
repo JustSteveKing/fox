@@ -1,5 +1,11 @@
+{% extends 'layouts/web.twig' %}
+
+{% block content %}
+
 <h1>{{ trans('common.welcome', { '%name%' : 'Steve'}) }}</h1>
 
 <h2>{{ trans_choice('common.new_messages', 5, { '%name%' : 'Steve' }) }}</h2>
 
 <h2>{{ trans_choice('common.replies', 0) }}</h2>
+
+{% endblock %}
