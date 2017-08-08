@@ -23,6 +23,7 @@ $container['config'] = function () {
     return new Config(__DIR__ . '/../config');
 };
 
+// Translator
 $container['translator'] = function ($container) {
     $config = $container->config;
     $translator = new Translator($config->get('app.locale'));
@@ -60,6 +61,11 @@ $container['capsule'] = function ($container) {
     return $capsule;
 };
 
+// Flash Messages
+$container['flash'] = function () {
+    return new \Slim\Flash\Messages();
+};
+
 // View
 $container['view'] = function ($container) {
     $config = $container->config;
@@ -76,6 +82,7 @@ $container['view'] = function ($container) {
     );
     $view->addExtension(new Twig_Extension_Debug());
     $view->addExtension(new App\Views\TranslateExtension($container['translator']));
+    $view->addExtension(new App\Views\ConfigurationExtension($container['config']));
     return $view;
 };
 

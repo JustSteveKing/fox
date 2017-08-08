@@ -13,6 +13,8 @@ class HomeController extends Controller
     {
         //$this->mail->to('test@test.com', 'Foxy User')->send(new Welcome($user));
         //$this->container->get('logger')->info('Sent test email');
-        return $this->view->render($response, 'index.twig');
+        return $this->view->render($response, 'index.twig', [
+            'flash' => $this->flash->addMessage('Test', 'Test Flash Message')
+        ]);
     }
 }
