@@ -17,6 +17,8 @@ abstract class Controller
 
     protected $mail;
 
+    protected $message;
+
     protected $translator;
 
     protected $flash;
@@ -33,5 +35,6 @@ abstract class Controller
         $this->mail = $container->get('mail');
         $this->translator = $container->get('translator');
         $this->flash = $container->get('flash');
+        $this->message = $container->get('message');
     }
 }

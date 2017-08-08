@@ -87,6 +87,16 @@ $container['view'] = function ($container) {
     return $view;
 };
 
+// Message
+$container['message'] = function ($container) {
+    $config = $container->config;
+
+    $client = new Twilio\Rest\Client($config->get('message.sid', $config->get('message.token')));
+
+    return (new App\Message\Messenger\Messenger($client, $container->view))
+        ->alwaysFrom($config->get('message.from.number'));
+};
+
 // Mail
 $container['mail'] = function ($container) {
     $config = $container->config;
