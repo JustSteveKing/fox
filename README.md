@@ -16,6 +16,25 @@ Available Commands:
 
 Migrations are configured in `phinx.php` instead of the default `phinx.yml` to allow us to pull bootstrap configuration from our application.
 
+## Mailables
+
+Mailables are a great way to send quick emails, I took inspiration from Laravel for how this is done. Thanks to Alex at CodeCourse for the amazing tutorial.
+
+## Messageables
+
+Messageables are a great way to send SMS messages. In `config/message.php` be sure to set up your [Twilio](https://www.twilio.com/) account details. There is one Messageable class aready built: `app/Message/Welcome.php` what this does is build up a template from `resources/views/message/welcome.twig` and prepares this from the configuration to send as a text message. The way we send it is usually from the controller, like so:
+
+```php
+$this->message->to('+44 - UK Mobile Number minus leading 0 -')->create(new WelcomeMessage());
+```
+
+Please ensure that it is a UK phone number, options for sending outside the UK is in Twilio documentation.
+
+### _Future Development_
+
+For future development this feature is going to be toggleable, so in you application config you can turn it on or off.
+
+Also the Slim console will have a command to create a new Messageable.
 
 ## Special Thanks
 
