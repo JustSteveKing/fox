@@ -14,7 +14,7 @@ Available Commands:
 
 ## Migrations
 
-Migrations are configured in `phinx.php` instead of the default `phinx.yml` to allow us to pull bootstrap configuration from out application
+Migrations are configured in `phinx.php` instead of the default `phinx.yml` to allow us to pull bootstrap configuration from our application.
 
 
 ## Special Thanks
