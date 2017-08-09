@@ -24,6 +24,18 @@ $container['config'] = function () {
     return new Config(__DIR__ . '/../config');
 };
 
+// Redis
+$container['redis'] = function ($container) {
+    $config = $container->config;
+
+    return new Predis\Client([
+        'schema' => 'tcp',
+        'host' => $config->get('redis.host'),
+        'port' => $config->get('redis.port'),
+        'password' => $config->get('redis.password'),
+    ]);
+};
+
 // Translator
 $container['translator'] = function ($container) {
     $config = $container->config;
