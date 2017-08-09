@@ -8,6 +8,8 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class ExampleMiddleware extends AbstractMiddleware
 {
+
+    public $description = "Example Middleware";
     /**
      * Example middleware invokable class
      *
