@@ -22,7 +22,8 @@
         "symfony/translation": "^3.3",
         "symfony/finder": "^3.3",
         "slim/flash": "^0.2.0",
-        "twilio/sdk": "^5.13"
+        "twilio/sdk": "^5.13",
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.5",
