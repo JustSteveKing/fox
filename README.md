@@ -2,10 +2,12 @@
 
 A Slim framework 3 bootstrap that is very foxy indeed.
 
+
 ## Slim Console
 
 Available Commands:
 * `php slim app:test` : A simple Test Command
+* `php slim app:config` : List out all of your stored configuration values, for quick access
 * `php slilm migration:create` : Create a new Database Migration
 * `php slim migration:migrate` : Run the migrations
 * `php slim migration:reset` : Reset all Migrations
@@ -16,9 +18,16 @@ Available Commands:
 
 Migrations are configured in `phinx.php` instead of the default `phinx.yml` to allow us to pull bootstrap configuration from our application.
 
+
+## Middleware Available
+
+* `ThrottleMiddleware` : Add rate limiting to routes or groups of routes, with customisable rate limits per attachment
+
+
 ## Mailables
 
 Mailables are a great way to send quick emails, I took inspiration from Laravel for how this is done. Thanks to Alex at CodeCourse for the amazing tutorial.
+
 
 ## Messageables
 
@@ -35,6 +44,7 @@ Please ensure that it is a UK phone number, options for sending outside the UK i
 For future development this feature is going to be toggleable, so in you application config you can turn it on or off.
 
 Also the Slim console will have a command to create a new Messageable.
+
 
 ## Special Thanks
 
